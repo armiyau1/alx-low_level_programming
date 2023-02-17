@@ -3,13 +3,15 @@
  * main - Entry point
  * Return: Always 0 (Success)
  */
-int main (void){
+
+int main (void)
+{
 	char c:
 
 	 c='a';
-   while
+         while
 	   (c <='z'){
-		   putchar ('c');
+		   putchar (c);
 		   c++;
 	   }
    putchar('\n');
