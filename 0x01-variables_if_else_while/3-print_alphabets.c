@@ -8,7 +8,8 @@ int main(void)
 { 
   char c;
 
-  char d
+  char d;
+
 	  c = 'a';
   	d = 'A';
 	while 
