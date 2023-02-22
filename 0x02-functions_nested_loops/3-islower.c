@@ -7,9 +7,9 @@
  * @c: The character is ASCII code
  * Return: 1 for lowercase chracter 0 for the rest 
  */
-_int islower(int c)
+int islower(int c)
 {
-	if (c >= 97 && c<= 122)
+	if (c >= 'a' && c<= 'z')
 	{
 		return (1);
 	}
@@ -17,5 +17,4 @@ _int islower(int c)
 	{ 
 		return (0);
 	}
-	_putchar('\n');
 }
