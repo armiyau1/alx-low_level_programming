@@ -17,5 +17,6 @@ for (i = 0; i < counter; i++)
 counter--;
 rev = s[i];
 s[i] = s[counter];
+s[counter] = rev;
 }
 }
