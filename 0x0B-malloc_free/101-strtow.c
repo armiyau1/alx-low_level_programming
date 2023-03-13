@@ -51,7 +51,7 @@ return (NULL);
 while (start < end)
 *tmp++ = str[start++];
 *tmp = '\0';
-matrix = tmp - c;
+matrix[k] = tmp - c;
 k++;
 c = 0;
 }
