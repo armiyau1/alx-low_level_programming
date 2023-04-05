@@ -15,9 +15,11 @@ if (h->str == NULL)
 printf("[0] (null)\n");
 }
 else
+{
 printf("[%u] %s\n", h->len, h->str);
 h = h->next;
 c++;
+}
 }
 return (c);
 }
