@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
-*bmain - function should be  executed before main
+*beforemain - function should be  executed before main
 *Return: nothing 
 */
 void __attribute__ ((constructor)) bmain()
