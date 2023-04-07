@@ -1,40 +1,29 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "main.h"
+#include <stdlib.h>
+
 /**
-* read_txtfile.reads a text file
-* @filename:the name of the file to be read
-* @letters:the highest number of letters to read and printf)
-* return:returns the actual number of letters it could read and print or else return 0
+*  * read_textfile: Read text file print to STDOUT.
+*   * @filename: text file that is going to be  read
+*    * @letters: number of letters to be read
+*     * returns the actual number of letters it could read and print
+*      *return 0 when function fails or filename is NULL.
 */
-ssize_t read_textfile (const char *filename, size_t letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-FILE *fptr = fopen (filename, "r"); 
-if (fptr == NULL)
-{
+char *temp;
+ssize_t fd;
+ssize_t w;
+ssize_t t;
+
+fd = open(filename, O_RDONLY);
+if (fd == -1)
 return (0);
-}
-char *temp  = (char *)malloc(letters + 1);
-if (temp == NULL)
-{
-fclose(fptr);
-return (0);
-}
-size_t cal = 0;
-while (cal < letters && fgets(temp, letters + 1, fptr) != NULL)
-{
-ssize_t read = strlen(temp);
-ssize_t bytes_written = fwrite(temp, sizeof(char), read, stdout);
-if(bytes_written != read)
-{
+temp = malloc(sizeof(char) * letters);
+t = read(fd, temp, letters);
+w = write(STDOUT_FILENO, temp, t);
+
 free(temp);
-fclose (fptr);
-return (0);
+close(fd);
+return (w);
 }
-cal += bytes_written;
-}
-free(temp);
-fclose(fptr);
-return (cal);
-}
+
